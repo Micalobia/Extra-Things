@@ -1,0 +1,152 @@
+{
+  "variants": {
+    "color=red": [
+      {
+        "model": "minecraft:block/netherrack"
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "x": 180
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "x": 270
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 90
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 90,
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 90,
+        "x": 180
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 90,
+        "x": 270
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 180
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 180,
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 180,
+        "x": 180
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 180,
+        "x": 270
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 270
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 270,
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 270,
+        "x": 180
+      },
+      {
+        "model": "minecraft:block/netherrack",
+        "y": 270,
+        "x": 270
+      }
+    ],
+    "color=blue": [
+      {
+        "model": "extra_things:block/blue_netherrack"
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "x": 90
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "x": 180
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "x": 270
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 90
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 90,
+        "x": 90
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 90,
+        "x": 180
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 90,
+        "x": 270
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 180
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 180,
+        "x": 90
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 180,
+        "x": 180
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 180,
+        "x": 270
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 270
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 270,
+        "x": 90
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 270,
+        "x": 180
+      },
+      {
+        "model": "extra_things:block/blue_netherrack",
+        "y": 270,
+        "x": 270
+      }
+    ]
+  }
+}

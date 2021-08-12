@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "color=red": {
+      "model": "minecraft:block/red_nether_bricks"
+    },
+    "color=blue": {
+      "model": "minecraft:block/warped_nether_bricks"
+    }
+  }
+}

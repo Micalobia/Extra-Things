@@ -1,0 +1,11 @@
+{
+  "parent": "block/netherrack",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "extra_things:block/blue_netherrack"
+    }
+  ]
+}

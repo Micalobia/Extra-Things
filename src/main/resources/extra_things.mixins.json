@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.micalobia.extra_things.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "block.BlocksMixin", "block.NetherrackBlockMixin", "block.NyliumBlockMixin", "block.StairsBlockAccessor",
+    "item.ItemsMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

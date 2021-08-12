@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "extra_things",
+  "version": "${version}",
+  "name": "Extra_Things",
+  "description": "Just a bundled group of vanilla plus features",
+  "authors": [
+    "Micalobia"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/extra_things/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.micalobia.extra_things.ExtraThings"
+    ],
+    "client": [
+      "dev.micalobia.extra_things.client.ExtraThingsClient"
+    ],
+    "server": []
+  },
+  "mixins": [
+    "extra_things.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16",
+    "nbtcrafting": "*"
+  },
+  "suggests": {
+  }
+}
