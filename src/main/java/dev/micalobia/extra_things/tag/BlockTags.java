@@ -11,7 +11,7 @@ public class BlockTags {
 	public static final Tag<Block> NETHERRACK;
 
 	static {
-		WARPED_NYLIUM = TagRegistry.block(ExtraThings.id("warped_nylium"));
+		WARPED_NYLIUM = TagRegistry.block(ExtraThings.id("warped_nylium.json"));
 		CRIMSON_NYLIUM = TagRegistry.block(ExtraThings.id("crimson_nylium"));
 		NETHERRACK = TagRegistry.block(ExtraThings.id("netherrack"));
 	}

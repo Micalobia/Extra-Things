@@ -1,0 +1,23 @@
+[
+    "red_cracked_nether_bricks",
+    "red_chiseled_nether_bricks",
+    "red_nether_brick_fence",
+
+    "blue_netherrack",
+    "blue_nether_bricks",
+    "blue_cracked_nether_bricks",
+    "blue_chiseled_nether_bricks",
+    "blue_nether_brick_fence",
+    "blue_nether_brick_stairs",
+    "blue_nether_brick_wall",
+    "blue_nether_brick_slab",
+
+    "warped_wart_block",
+    "warped_nether_bricks",
+    "warped_cracked_nether_bricks",
+    "warped_chiseled_nether_bricks",
+    "warped_nether_brick_fence",
+    "warped_nether_brick_stairs",
+    "warped_nether_brick_wall",
+    "warped_nether_brick_slab"
+]

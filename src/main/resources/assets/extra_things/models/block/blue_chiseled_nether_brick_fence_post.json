@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "extra_things:block/blue_chiseled_nether_bricks"
+  }
+}

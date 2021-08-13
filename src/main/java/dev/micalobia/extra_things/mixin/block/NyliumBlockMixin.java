@@ -1,23 +1,22 @@
 package dev.micalobia.extra_things.mixin.block;
 
-import dev.micalobia.extra_things.block.enums.NetherColor;
-import dev.micalobia.extra_things.util.MixinTemplate;
-import dev.micalobia.extra_things.block.INetherBlock;
+import dev.micalobia.extra_things.tag.BlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.NyliumBlock;
-import net.minecraft.state.StateManager.Builder;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(NyliumBlock.class)
-public abstract class NyliumBlockMixin extends Block implements MixinTemplate<NyliumBlock>, INetherBlock {
-	public NyliumBlockMixin(Settings settings) {
-		super(settings);
-		setDefaultState(getDefaultState().with(COLOR, NetherColor.RED));
+public class NyliumBlockMixin {
+	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 0))
+	private boolean changeCrimsonCheck(BlockState state, Block block) {
+		return state.isIn(BlockTags.CRIMSON_NYLIUM);
 	}
 
-	@Override
-	public void appendProperties(Builder<Block, BlockState> builder) {
-		_appendProperties(builder);
+	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1))
+	private boolean changeWarpedCheck(BlockState state, Block block) {
+		return state.isIn(BlockTags.WARPED_NYLIUM);
 	}
 }

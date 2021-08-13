@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:netherrack",
+    "extra_things:blue_netherrack"
+  ]
+}

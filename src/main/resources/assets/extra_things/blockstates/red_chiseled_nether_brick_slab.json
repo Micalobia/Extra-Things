@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extra_things:block/red_chiseled_nether_brick_slab"
+    },
+    "type=double": {
+      "model": "extra_things:block/red_chiseled_nether_bricks"
+    },
+    "type=top": {
+      "model": "extra_things:block/red_chiseled_nether_brick_slab_top"
+    }
+  }
+}

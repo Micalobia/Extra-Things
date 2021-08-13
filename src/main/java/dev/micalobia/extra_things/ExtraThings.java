@@ -1,7 +1,7 @@
 package dev.micalobia.extra_things;
 
-import dev.micalobia.extra_things.block.Blocks;
-import dev.micalobia.extra_things.items.Items;
+import dev.micalobia.extra_things.block.ModdedBlocks;
+import dev.micalobia.extra_things.items.ModdedItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
@@ -37,7 +37,7 @@ public class ExtraThings implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Blocks.init();
-		Items.init();
+		ModdedBlocks.init();
+		ModdedItems.init();
 	}
 }

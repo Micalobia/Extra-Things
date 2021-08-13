@@ -4,8 +4,7 @@
   "package": "dev.micalobia.extra_things.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "block.BlocksMixin", "block.NetherrackBlockMixin", "block.NyliumBlockMixin", "block.StairsBlockAccessor",
-    "item.ItemsMixin"
+    "block.NetherrackBlockMixin", "block.NyliumBlockFactory", "block.NyliumBlockMixin", "block.StairsBlockFactory"
   ],
   "client": [
   ],
