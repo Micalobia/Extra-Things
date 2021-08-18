@@ -46,6 +46,10 @@ public class ModdedBlocks {
 		BlockExtension.start("warped_chiseled_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).item(ItemGroup.BUILDING_BLOCKS).build("warped_chiseled_nether_brick");
 		BlockExtension.start(Blocks.OBSIDIAN).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build();
 		BlockExtension.start(Blocks.CRYING_OBSIDIAN).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build();
+		BlockExtension.start(Blocks.QUARTZ_BLOCK).wall("minecraft:block/quartz_block_top").item(ItemGroup.BUILDING_BLOCKS).build("quartz");
+		BlockExtension.start(Blocks.QUARTZ_BRICKS).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build("quartz_brick");
+		BlockExtension.start(Blocks.CHISELED_QUARTZ_BLOCK).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build("chiseled_quartz");
+		BlockExtension.start(Blocks.SMOOTH_QUARTZ).wall("minecraft:block/quartz_block_bottom").item(ItemGroup.BUILDING_BLOCKS).build();
 		if(ExtraThings.onClient())
 			clientInit();
 	}

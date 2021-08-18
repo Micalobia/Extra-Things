@@ -41,5 +41,13 @@
   "block.extra_things.obsidian_wall": "Obsidian Wall",
   "block.extra_things.crying_obsidian_slab": "Crying Obsidian Slab",
   "block.extra_things.crying_obsidian_stairs": "Crying Obsidian Stairs",
-  "block.extra_things.crying_obsidian_wall": "Crying Obsidian Wall"
+  "block.extra_things.crying_obsidian_wall": "Crying Obsidian Wall",
+  "block.extra_things.quartz_wall": "Quartz Wall",
+  "block.extra_things.quartz_brick_slab": "Quartz Brick Slab",
+  "block.extra_things.quartz_brick_stairs": "Quartz Brick Stairs",
+  "block.extra_things.quartz_brick_wall": "Quartz Brick Wall",
+  "block.extra_things.chiseled_quartz_slab": "Chiseled Quartz Slab",
+  "block.extra_things.chiseled_quartz_stairs": "Chiseled Quartz Stairs",
+  "block.extra_things.chiseled_quartz_wall": "Chiseled Quartz Wall",
+  "block.extra_things.smooth_quartz_wall": "Smooth Quartz Wall"
 }

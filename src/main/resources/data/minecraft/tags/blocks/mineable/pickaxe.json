@@ -37,6 +37,14 @@
     "extra_things:obsidian_wall",
     "extra_things:crying_obsidian_slab",
     "extra_things:crying_obsidian_stairs",
-    "extra_things:crying_obsidian_wall"
+    "extra_things:crying_obsidian_wall",
+    "extra_things:quartz_wall",
+    "extra_things:quartz_brick_slab",
+    "extra_things:quartz_brick_stairs",
+    "extra_things:quartz_brick_wall",
+    "extra_things:chiseled_quartz_slab",
+    "extra_things:chiseled_quartz_stairs",
+    "extra_things:chiseled_quartz_wall",
+    "extra_things:smooth_quartz_wall"
   ]
 }

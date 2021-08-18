@@ -8,6 +8,10 @@
     "extra_things:warped_nether_brick_wall",
     "extra_things:warped_cracked_nether_brick_wall",
     "extra_things:obsidian_wall",
-    "extra_things:crying_obsidian_wall"
+    "extra_things:crying_obsidian_wall",
+    "extra_things:quartz_wall",
+    "extra_things:quartz_brick_wall",
+    "extra_things:chiseled_quartz_wall",
+    "extra_things:smooth_quartz_wall"
   ]
 }
