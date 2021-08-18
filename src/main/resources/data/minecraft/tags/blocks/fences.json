@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "extra_things:cracked_nether_brick_fence",
+    "extra_things:red_cracked_nether_brick_fence",
+    "extra_things:blue_nether_brick_fence",
+    "extra_things:blue_cracked_nether_brick_fence",
+    "extra_things:warped_nether_brick_fence",
+    "extra_things:warped_cracked_nether_brick_fence",
+    "extra_things:red_nether_brick_fence"
+  ]
+}

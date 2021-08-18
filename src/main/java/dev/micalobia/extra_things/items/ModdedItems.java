@@ -1,27 +1,32 @@
 package dev.micalobia.extra_things.items;
 
 import dev.micalobia.extra_things.ExtraThings;
-import dev.micalobia.extra_things.block.NetherBlocks;
+import dev.micalobia.extra_things.block.ModdedBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponents;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.item.Item.Settings;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModdedItems {
 	public static final Item SWEET_BERRY_PIE;
 	public static final Item GLOW_BERRY_PIE;
+	public static final Item TINTED_GLASS_PANE;
+	public static final Item BLUE_NETHERRACK;
+	public static final Item BLUE_CRIMSON_NYLIUM;
+	public static final Item BLUE_WARPED_NYLIUM;
 
 	static {
 		SWEET_BERRY_PIE = register("sweet_berry_pie", new Item((new Settings()).group(ItemGroup.FOOD).food(FoodComponents.PUMPKIN_PIE)));
 		GLOW_BERRY_PIE = register("glow_berry_pie", new Item((new Settings()).group(ItemGroup.FOOD).food(FoodComponents.PUMPKIN_PIE)));
-		NetherItems.init();
-		//register("warped_wart", new AliasedBlockItem(Blocks.WARPED_WART, new Item.Settings().group(ItemGroup.MATERIALS)));
+		TINTED_GLASS_PANE = register(ModdedBlocks.TINTED_GLASS_PANE, ItemGroup.DECORATIONS);
+
+		BLUE_NETHERRACK = ModdedItems.register(ModdedBlocks.BLUE_NETHERRACK, ItemGroup.BUILDING_BLOCKS);
+		BLUE_CRIMSON_NYLIUM = ModdedItems.register(ModdedBlocks.BLUE_CRIMSON_NYLIUM, ItemGroup.BUILDING_BLOCKS);
+		BLUE_WARPED_NYLIUM = ModdedItems.register(ModdedBlocks.BLUE_WARPED_NYLIUM, ItemGroup.BUILDING_BLOCKS);
+		Item.BLOCK_ITEMS.put(ModdedBlocks.POTION_CAULDRON, Items.CAULDRON);
+		Item.BLOCK_ITEMS.put(ModdedBlocks.DYE_CAULDRON, Items.CAULDRON);
 	}
 
 	public static void init() {

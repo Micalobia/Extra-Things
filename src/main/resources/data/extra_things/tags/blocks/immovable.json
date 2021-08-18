@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:obsidian",
+    "minecraft:crying_obsidian",
+    "minecraft:respawn_anchor",
+    "extra_things:obsidian_slab",
+    "extra_things:obsidian_stairs",
+    "extra_things:obsidian_wall",
+    "extra_things:crying_obsidian_slab",
+    "extra_things:crying_obsidian_stairs",
+    "extra_things:crying_obsidian_wall"
+  ]
+}

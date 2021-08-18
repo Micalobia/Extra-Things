@@ -1,6 +1,6 @@
 package dev.micalobia.extra_things.mixin.block;
 
-import dev.micalobia.extra_things.block.NetherBlocks;
+import dev.micalobia.extra_things.block.ModdedBlocks;
 import dev.micalobia.extra_things.tag.BlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,9 +28,30 @@ public class NetherrackBlockMixin {
 
 	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 0))
 	private BlockState getRandomWarped(Block block, ServerWorld world, Random random, BlockPos pos, BlockState state) {
-		if(state.isOf(NetherBlocks.BLUE_NETHERRACK))
-			return NetherBlocks.BLUE_WARPED_NYLIUM.getDefaultState();
+		if(state.isOf(ModdedBlocks.BLUE_NETHERRACK))
+			return ModdedBlocks.BLUE_WARPED_NYLIUM.getDefaultState();
 		return Blocks.WARPED_NYLIUM.getDefaultState();
+	}
+
+	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 1))
+	private BlockState getRandomCrimson(Block block, ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		if(state.isOf(ModdedBlocks.BLUE_NETHERRACK))
+			return ModdedBlocks.BLUE_CRIMSON_NYLIUM.getDefaultState();
+		return Blocks.CRIMSON_NYLIUM.getDefaultState();
+	}
+
+	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 2))
+	private BlockState getWarped(Block block, ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		if(state.isOf(ModdedBlocks.BLUE_NETHERRACK))
+			return ModdedBlocks.BLUE_WARPED_NYLIUM.getDefaultState();
+		return Blocks.WARPED_NYLIUM.getDefaultState();
+	}
+
+	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 3))
+	private BlockState getCrimson(Block block, ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		if(state.isOf(ModdedBlocks.BLUE_NETHERRACK))
+			return ModdedBlocks.BLUE_CRIMSON_NYLIUM.getDefaultState();
+		return Blocks.CRIMSON_NYLIUM.getDefaultState();
 	}
 
 	//private BlockState get

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "extra_things:block/blue_chiseled_nether_bricks",
-    "top": "extra_things:block/blue_chiseled_nether_bricks",
-    "side": "extra_things:block/blue_chiseled_nether_bricks"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "extra_things:block/red_cracked_nether_bricks"
-  }
-}

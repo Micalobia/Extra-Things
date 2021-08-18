@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "extra_things:block/warped_chiseled_nether_bricks",
-    "top": "extra_things:block/warped_chiseled_nether_bricks",
-    "side": "extra_things:block/warped_chiseled_nether_bricks"
-  }
-}

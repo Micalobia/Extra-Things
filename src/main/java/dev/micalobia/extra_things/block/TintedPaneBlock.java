@@ -22,15 +22,15 @@ public class TintedPaneBlock extends PaneBlock {
 		return world.getMaxLightLevel();
 	}
 
-	public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
-		return 1.0f;
-	}
-
 	public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return VoxelShapes.empty();
 	}
 
+	public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
+		return 1.0F;
+	}
+
 	public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-		return stateFrom.isOf(this) || super.isSideInvisible(state, stateFrom, direction);
+		return stateFrom.isOf(this) ? true : super.isSideInvisible(state, stateFrom, direction);
 	}
 }
