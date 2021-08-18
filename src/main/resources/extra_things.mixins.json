@@ -5,9 +5,10 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "block.NetherrackBlockMixin", "block.NyliumBlockFactory", "block.NyliumBlockMixin", "block.PaneBlockFactory",
-    "block.PistonBlockMixin", "block.StairsBlockFactory", "block.enums.InstrumentMixin", "client.MinecraftClientMixin"
+    "block.PistonBlockMixin", "block.StairsBlockFactory", "block.enums.InstrumentMixin"
   ],
   "client": [
+    "client.MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
