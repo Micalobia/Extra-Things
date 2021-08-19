@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(HugeFungusFeature.class)
 public class HugeFungusFeatureMixin {
-	@ModifyVariable(method = "generate", at = @At(shift = Shift.BY, by = 2, value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;"), print = true)
+	@ModifyVariable(method = "generate", at = @At(shift = Shift.BY, by = 2, value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;"))
 	private Block changeWarpedNylium(Block block) {
 		if(block == Blocks.WARPED_NYLIUM)
 			return ModdedBlocks.BLUE_WARPED_NYLIUM;
