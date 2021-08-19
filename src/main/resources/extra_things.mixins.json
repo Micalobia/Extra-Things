@@ -4,8 +4,8 @@
   "package": "dev.micalobia.extra_things.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "block.NetherrackBlockMixin", "block.NyliumBlockFactory", "block.NyliumBlockMixin", "block.PaneBlockFactory",
-    "block.PistonBlockMixin", "block.StairsBlockFactory", "block.enums.InstrumentMixin",
+    "block.NetherrackBlockMixin", "block.NetherWartBlockFactory", "block.NyliumBlockFactory", "block.NyliumBlockMixin",
+    "block.PaneBlockFactory", "block.PistonBlockMixin", "block.StairsBlockFactory", "block.enums.InstrumentMixin",
     "world.gen.feature.HugeFungusFeatureConfigMixin", "world.gen.feature.HugeFungusFeatureMixin",
     "world.gen.surfacebuilder.NetherForestSurfaceBuilderMixin", "world.gen.surfacebuilder.SurfaceBuilderMixin"
   ],

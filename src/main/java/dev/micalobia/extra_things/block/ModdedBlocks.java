@@ -2,6 +2,7 @@ package dev.micalobia.extra_things.block;
 
 import dev.micalobia.extra_things.ExtraThings;
 import dev.micalobia.extra_things.block.cauldron.CauldronBehaviors;
+import dev.micalobia.extra_things.mixin.block.NetherWartBlockFactory;
 import dev.micalobia.extra_things.mixin.block.NyliumBlockFactory;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,11 +26,13 @@ public class ModdedBlocks {
 	public static final Block BLUE_WARPED_NYLIUM;
 	public static final Block POTION_CAULDRON;
 	public static final Block DYE_CAULDRON;
+	public static final Block WARPED_WART;
 
 	static {
 		POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)));
 		DYE_CAULDRON = register("dye_cauldron", new DyeCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)));
 		TINTED_GLASS_PANE = register("tinted_glass_pane", new TintedPaneBlock(AbstractBlock.Settings.copy(Blocks.TINTED_GLASS)));
+		WARPED_WART = register("warped_wart", NetherWartBlockFactory.create(AbstractBlock.Settings.copy(Blocks.NETHER_WART).mapColor(MapColor.TEAL)));
 
 		BLUE_NETHERRACK = register("blue_netherrack", new NetherrackBlock(Settings.copy(Blocks.NETHERRACK).mapColor(MapColor.DARK_AQUA)));
 		BLUE_CRIMSON_NYLIUM = register("blue_crimson_nylium", NyliumBlockFactory.create(Settings.copy(Blocks.CRIMSON_NYLIUM)));
@@ -68,6 +71,7 @@ public class ModdedBlocks {
 	@Environment(EnvType.CLIENT)
 	public static void clientInit() {
 		BlockRenderLayerMap.INSTANCE.putBlock(TINTED_GLASS_PANE, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.INSTANCE.putBlock(WARPED_WART, RenderLayer.getCutout());
 		ColorProviderRegistry.BLOCK.register(CauldronBehaviors::colorProvider, POTION_CAULDRON, DYE_CAULDRON);
 	}
 }
