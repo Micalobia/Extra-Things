@@ -18,6 +18,7 @@ public class ModdedItems {
 	public static final Item BLUE_WARPED_NYLIUM;
 	public static final Item BLUE_NETHER_BRICK;
 	public static final Item WARPED_WART;
+	public static final Item LUMBERMILL;
 
 	static {
 		SWEET_BERRY_PIE = register("sweet_berry_pie", new Item((new Settings()).group(ItemGroup.FOOD).food(FoodComponents.PUMPKIN_PIE)));
@@ -29,6 +30,7 @@ public class ModdedItems {
 		BLUE_WARPED_NYLIUM = register(ModdedBlocks.BLUE_WARPED_NYLIUM, ItemGroup.BUILDING_BLOCKS);
 		BLUE_NETHER_BRICK = register("blue_nether_brick", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
 		WARPED_WART = register(ModdedBlocks.WARPED_WART, ItemGroup.BREWING);
+		LUMBERMILL = register(ModdedBlocks.LUMBERMILL, ItemGroup.DECORATIONS);
 
 		Item.BLOCK_ITEMS.put(ModdedBlocks.POTION_CAULDRON, Items.CAULDRON);
 		Item.BLOCK_ITEMS.put(ModdedBlocks.DYE_CAULDRON, Items.CAULDRON);

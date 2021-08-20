@@ -74,6 +74,7 @@ public class ModdedBlocks {
 	public static void clientInit() {
 		BlockRenderLayerMap.INSTANCE.putBlock(TINTED_GLASS_PANE, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(WARPED_WART, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(LUMBERMILL, RenderLayer.getCutout());
 		ColorProviderRegistry.BLOCK.register(CauldronBehaviors::colorProvider, POTION_CAULDRON, DYE_CAULDRON);
 	}
 }
