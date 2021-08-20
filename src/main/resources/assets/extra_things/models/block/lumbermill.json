@@ -1,0 +1,7 @@
+{
+  "parent": "block/stonecutter",
+  "textures": {
+    "top": "extra_things:block/lumbermill_top",
+    "side": "extra_things:block/lumbermill_side"
+  }
+}

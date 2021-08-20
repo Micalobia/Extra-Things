@@ -4,6 +4,8 @@ import dev.micalobia.extra_things.block.ModdedBlocks;
 import dev.micalobia.extra_things.block.cauldron.CauldronBehaviors;
 import dev.micalobia.extra_things.block.entity.ModdedBlockEntities;
 import dev.micalobia.extra_things.items.ModdedItems;
+import dev.micalobia.extra_things.recipe.ModdedRecipes;
+import dev.micalobia.extra_things.screen.ModdedScreenHandlers;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.EnvType;
@@ -53,5 +55,7 @@ public class ExtraThings implements ModInitializer {
 		ModdedBlocks.init();
 		ModdedBlockEntities.init();
 		ModdedItems.init();
+		ModdedRecipes.init();
+		ModdedScreenHandlers.init();
 	}
 }

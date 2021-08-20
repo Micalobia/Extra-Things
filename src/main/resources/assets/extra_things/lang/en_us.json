@@ -50,5 +50,6 @@
   "block.extra_things.chiseled_quartz_stairs": "Chiseled Quartz Stairs",
   "block.extra_things.chiseled_quartz_wall": "Chiseled Quartz Wall",
   "block.extra_things.smooth_quartz_wall": "Smooth Quartz Wall",
-  "item.extra_things.blue_nether_brick": "Blue Nether Brick"
+  "item.extra_things.blue_nether_brick": "Blue Nether Brick",
+  "extra_things.container.lumbermill": "Lumbermill"
 }

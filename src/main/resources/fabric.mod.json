@@ -26,6 +26,7 @@
   "mixins": [
     "extra_things.mixins.json"
   ],
+  "accessWidener": "extra_things.aw",
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
