@@ -8,6 +8,7 @@ import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
 import net.devtech.arrp.json.models.JModel;
 import net.devtech.arrp.json.models.JTextures;
+import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -23,9 +24,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class BlockExtension {
 	protected Block base;
@@ -33,38 +32,17 @@ public class BlockExtension {
 	protected Identifier prefix;
 	protected AbstractBlock.Settings settings;
 	protected @Nullable Item.Settings itemSettings;
+	protected boolean generateRecipes;
+	protected Collection<Block> isCutFrom;
 
 	@Environment(EnvType.CLIENT)
 	protected RenderLayer renderLayer;
 
-	protected BlockExtension(Identifier prefix, Identifier base, AbstractBlock.Settings settings, @Nullable Item.Settings itemSettings, @Nullable RenderLayer renderLayer) {
-		this.base_id = base;
+	protected BlockExtension(Identifier prefix, @Nullable Item.Settings itemSettings) {
+		this.base_id = null;
 		this.prefix = prefix;
-		this.settings = settings;
 		this.itemSettings = itemSettings;
-		this.base = register(base, new Block(settings));
-		if(ExtraThings.onClient()) {
-			if(renderLayer != null)
-				setRenderLayer(renderLayer);
-			else
-				setRenderLayer();
-			BlockRenderLayerMap.INSTANCE.putBlock(this.base, this.renderLayer);
-		}
-		generate_base_files();
-	}
-
-	protected BlockExtension(Identifier prefix, Block base, @Nullable Item.Settings itemSettings, @Nullable RenderLayer renderLayer) {
-		this.base = base;
-		this.base_id = Registry.BLOCK.getId(base);
-		this.prefix = prefix;
-		this.settings = AbstractBlock.Settings.copy(base);
-		this.itemSettings = itemSettings;
-		if(ExtraThings.onClient()) {
-			if(renderLayer != null)
-				setRenderLayer(renderLayer);
-			else
-				setRenderLayer();
-		}
+		this.isCutFrom = Collections.emptyList();
 	}
 
 	public static Builder start(Identifier blockId, AbstractBlock.Settings blockSettings) {
@@ -97,6 +75,19 @@ public class BlockExtension {
 	@Environment(EnvType.CLIENT)
 	protected void setRenderLayer(RenderLayer layer) {
 		this.renderLayer = layer;
+	}
+
+	protected void base(Identifier id, AbstractBlock.Settings settings) {
+		this.base_id = id;
+		this.base = register(id, new Block(settings));
+		this.settings = settings;
+		generate_base_files();
+	}
+
+	protected void base(Block block) {
+		this.base_id = Registry.BLOCK.getId(block);
+		this.base = block;
+		this.settings = AbstractBlock.Settings.copy(block);
 	}
 
 	protected void slab(@Nullable Identifier id) {
@@ -134,6 +125,14 @@ public class BlockExtension {
 		generate_pane_files(id);
 	}
 
+	protected void recipes() {
+		this.generateRecipes = true;
+	}
+
+	protected void isCutFrom(Collection<Block> blocks) {
+		isCutFrom = blocks;
+	}
+
 	protected Identifier blockpath() {
 		return new Identifier(base_id.getNamespace(), "block/" + base_id.getPath());
 	}
@@ -164,12 +163,23 @@ public class BlockExtension {
 		ExtraThings.RESOURCE_PACK.addBlockState(JState.state(variant), base_id);
 
 
-		JModel block = JModel.modelKeepElements("minecraft:block/cube_all");
-		block.textures(JModel.textures().var("all", blockpath().toString()));
-		ExtraThings.RESOURCE_PACK.addModel(block, blockpath());
+		JModel model = JModel.modelKeepElements("minecraft:block/cube_all");
+		model.textures(JModel.textures().var("all", blockpath().toString()));
+		ExtraThings.RESOURCE_PACK.addModel(model, blockpath());
 
 		if(itemSettings != null) {
 			parrot_parent(blockpath(), itempath());
+			if(generateRecipes) {
+				Identifier cutId;
+				JIngredient base;
+				JStackedResult result = JResult.stackedResult(base_id.toString(), 1);
+
+				for(Block block : isCutFrom) {
+					base = JIngredient.ingredient().item(block.asItem());
+					cutId = new Identifier(prefix.getNamespace(), base_id.getPath() + "_from_" + Registry.ITEM.getId(block.asItem()).getPath() + "_stonecutting");
+					ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+				}
+			}
 		}
 	}
 
@@ -191,6 +201,24 @@ public class BlockExtension {
 
 		if(itemSettings != null) {
 			parrot_parent(bappend("_slab"), iappend("_slab"));
+			if(generateRecipes) {
+				JIngredient base = JIngredient.ingredient().item(this.base.asItem());
+				JKeys key = JKeys.keys().key("#", base);
+
+				JPattern pattern = JPattern.pattern("###");
+				JStackedResult result = JResult.stackedResult(append("_slab").toString(), 6);
+				ExtraThings.RESOURCE_PACK.addRecipe(append("_slab"), JRecipe.shaped(pattern, key, result));
+
+				Identifier cutId = append("_slab_from_" + base_id.getPath() + "_stonecutting");
+				result = JResult.stackedResult(append("_slab").toString(), 2);
+				ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+
+				for(Block block : isCutFrom) {
+					base = JIngredient.ingredient().item(block.asItem());
+					cutId = append("_slab_from_" + Registry.ITEM.getId(block.asItem()).getPath() + "_stonecutting");
+					ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+				}
+			}
 		}
 	}
 
@@ -258,6 +286,24 @@ public class BlockExtension {
 
 		if(itemSettings != null) {
 			parrot_parent(bappend("_stairs"), iappend("_stairs"));
+			if(generateRecipes) {
+				JIngredient base = JIngredient.ingredient().item(this.base.asItem());
+				JKeys key = JKeys.keys().key("#", base);
+
+				JPattern pattern = JPattern.pattern("#  ", "## ", "###");
+				JStackedResult result = JResult.stackedResult(append("_stairs").toString(), 4);
+				ExtraThings.RESOURCE_PACK.addRecipe(append("_stairs"), JRecipe.shaped(pattern, key, result));
+
+				Identifier cutId = append("_stairs_from_" + base_id.getPath() + "_stonecutting");
+				result = JResult.stackedResult(append("_stairs").toString(), 1);
+				ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+
+				for(Block block : isCutFrom) {
+					base = JIngredient.ingredient().item(block.asItem());
+					cutId = append("_stairs_from_" + Registry.ITEM.getId(block.asItem()).getPath() + "_stonecutting");
+					ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+				}
+			}
 		}
 	}
 
@@ -285,6 +331,24 @@ public class BlockExtension {
 
 		if(itemSettings != null) {
 			parrot_parent(bappend("_wall_inventory"), iappend("_wall"));
+			if(generateRecipes) {
+				JIngredient base = JIngredient.ingredient().item(this.base.asItem());
+				JKeys key = JKeys.keys().key("#", base);
+
+				JPattern pattern = JPattern.pattern("###", "###");
+				JStackedResult result = JResult.stackedResult(append("_wall").toString(), 6);
+				ExtraThings.RESOURCE_PACK.addRecipe(append("_wall"), JRecipe.shaped(pattern, key, result));
+
+				Identifier cutId = append("_wall_from_" + base_id.getPath() + "_stonecutting");
+				result = JResult.stackedResult(append("_wall").toString(), 1);
+				ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+
+				for(Block block : isCutFrom) {
+					base = JIngredient.ingredient().item(block.asItem());
+					cutId = append("_wall_from_" + Registry.ITEM.getId(block.asItem()).getPath() + "_stonecutting");
+					ExtraThings.RESOURCE_PACK.addRecipe(cutId, JRecipe.stonecutting(base, result));
+				}
+			}
 		}
 	}
 
@@ -340,7 +404,7 @@ public class BlockExtension {
 		ExtraThings.RESOURCE_PACK.addModel(templateTwo.clone().parent("minecraft:block/template_glass_pane_side_alt"), bappend("_pane_side_alt"));
 
 		if(itemSettings != null) {
-			parrot_parent(bappend("_fence_inventory"), iappend("_fence"));
+			parrot_parent(bappend("_pane_inventory"), iappend("_pane"));
 		}
 	}
 
@@ -360,6 +424,8 @@ public class BlockExtension {
 		protected Block block = null;
 		protected Identifier blockId = null;
 		protected Map<BlockType, Identifier> customTextures;
+		protected boolean includeRecipes;
+		protected Collection<Block> cutFrom;
 
 		@Environment(EnvType.CLIENT)
 		protected RenderLayer renderLayer = null;
@@ -367,6 +433,8 @@ public class BlockExtension {
 		protected Builder() {
 			blocks = EnumSet.of(BlockType.BASE);
 			customTextures = new HashMap<>();
+			includeRecipes = true;
+			cutFrom = Collections.emptyList();
 		}
 
 		protected Builder generic(BlockType type) {
@@ -446,6 +514,26 @@ public class BlockExtension {
 			return generic(BlockType.PANE, custom_texture);
 		}
 
+		public Builder isCutFrom(Block block) {
+			cutFrom = List.of(block);
+			return this;
+		}
+
+		public Builder isCutFrom(Block... blocks) {
+			cutFrom = Arrays.asList(blocks);
+			return this;
+		}
+
+		public Builder isCutFrom(Collection<Block> blocks) {
+			cutFrom = blocks;
+			return this;
+		}
+
+		public Builder noRecipes() {
+			includeRecipes = false;
+			return this;
+		}
+
 		public Builder solid() {
 			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
 				renderLayer = RenderLayer.getSolid();
@@ -497,20 +585,29 @@ public class BlockExtension {
 
 		public void build(Identifier prefix) {
 			assert this.block != null || (this.blockId != null && this.blockSettings != null);
-			BlockExtension be;
+			BlockExtension be = new BlockExtension(prefix, this.itemSettings);
+			if(includeRecipes) {
+				be.recipes();
+				be.isCutFrom(cutFrom);
+			}
 			if(this.block != null)
-				be = new BlockExtension(prefix, this.block, itemSettings, this.renderLayer);
+				be.base(block);
 			else
-				be = new BlockExtension(prefix, this.blockId, this.blockSettings, itemSettings, this.renderLayer);
+				be.base(blockId, blockSettings);
+			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+				if(renderLayer != null) {
+					be.setRenderLayer(renderLayer);
+					if(block == null)
+						BlockRenderLayerMap.INSTANCE.putBlock(be.base, renderLayer);
+				} else
+					be.setRenderLayer();
+			}
 			if(blocks.contains(BlockType.SLAB)) be.slab(customTextures.get(BlockType.SLAB));
 			if(blocks.contains(BlockType.STAIRS)) be.stairs(customTextures.get(BlockType.STAIRS));
 			if(blocks.contains(BlockType.WALL)) be.wall(customTextures.get(BlockType.WALL));
 			if(blocks.contains(BlockType.FENCE)) be.fence(customTextures.get(BlockType.FENCE));
 			if(blocks.contains(BlockType.PANE)) be.pane(customTextures.get(BlockType.PANE));
-
 		}
-
 	}
-
 }
 
