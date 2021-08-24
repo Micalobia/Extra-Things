@@ -1,6 +1,7 @@
 package dev.micalobia.extra_things.block.entity;
 
 import dev.micalobia.extra_things.recipe.ModdedRecipes;
+import dev.micalobia.extra_things.screen.KilnScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -23,8 +24,7 @@ public class KilnBlockEntity extends AbstractFurnaceBlockEntity {
 
 	@Override
 	protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-		throw new NotImplementedException("TODO");
-		//return new KilnScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+		return new KilnScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
 	}
 
 	@Override

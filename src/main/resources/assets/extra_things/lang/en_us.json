@@ -52,5 +52,8 @@
   "block.extra_things.smooth_quartz_wall": "Smooth Quartz Wall",
   "block.extra_things.lumbermill": "Lumbermill",
   "item.extra_things.blue_nether_brick": "Blue Nether Brick",
-  "extra_things.container.lumbermill": "Lumbermill"
+  "extra_things.container.lumbermill": "Lumbermill",
+  "extra_things.container.kiln": "Kiln",
+  "block.extra_things.kiln": "Kiln",
+  "extra_things.gui.recipebook.toggleRecipes.firable": "Showing Firable"
 }
