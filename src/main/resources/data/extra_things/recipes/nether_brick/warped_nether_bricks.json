@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NW",
+    "WN"
+  ],
+  "key": {
+    "W": {
+      "item": "extra_things:warped_wart"
+    },
+    "N": {
+      "item": "extra_things:blue_nether_brick"
+    }
+  },
+  "result": {
+    "item": "extra_things:warped_nether_bricks"
+  }
+}

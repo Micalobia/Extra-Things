@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "extra_things:blue_nether_brick_slab"
+    }
+  },
+  "result": {
+    "item": "extra_things:blue_chiseled_nether_bricks"
+  }
+}
