@@ -1,0 +1,9 @@
+{
+  "type": "extra_things:firing",
+  "ingredient": {
+    "item": "minecraft:cactus"
+  },
+  "result": "minecraft:green_dye",
+  "experience": 1,
+  "cookingtime": 100
+}

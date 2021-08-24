@@ -1,0 +1,10 @@
+
+{
+  "type": "extra_things:firing",
+  "ingredient": {
+    "item": "minecraft:clay"
+  },
+  "result": "minecraft:terracotta",
+  "experience": 0.35,
+  "cookingtime": 100
+}
