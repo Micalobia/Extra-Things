@@ -29,6 +29,8 @@ public class ModdedBlocks {
 	public static final Block WARPED_WART;
 	public static final Block LUMBERMILL;
 	public static final Block KILN;
+	public static final Block BLUE_NETHER_BRICKS;
+	public static final Block WARPED_NETHER_BRICKS;
 
 	static {
 		POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)));
@@ -44,19 +46,21 @@ public class ModdedBlocks {
 		BlockExtension.start(Blocks.CRACKED_NETHER_BRICKS).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("cracked_nether_brick");
 		BlockExtension.start(Blocks.RED_NETHER_BRICKS).fence().item(ItemGroup.BUILDING_BLOCKS).build("red_nether_brick");
 		BlockExtension.start("red_cracked_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS)).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("red_cracked_nether_brick");
-		BlockExtension.start("red_chiseled_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS)).item(ItemGroup.BUILDING_BLOCKS).build("red_chiseled_nether_brick");
+		BlockExtension.start("red_chiseled_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS)).isCutFrom(Blocks.RED_NETHER_BRICKS).item(ItemGroup.BUILDING_BLOCKS).build("red_chiseled_nether_brick");
 		BlockExtension.start("blue_nether_bricks", Settings.copy(Blocks.NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("blue_nether_brick");
+		BLUE_NETHER_BRICKS = Registry.BLOCK.get(ExtraThings.id("blue_nether_bricks"));
 		BlockExtension.start("blue_cracked_nether_bricks", Settings.copy(Blocks.NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("blue_cracked_nether_brick");
-		BlockExtension.start("blue_chiseled_nether_bricks", Settings.copy(Blocks.NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).item(ItemGroup.BUILDING_BLOCKS).build("blue_chiseled_nether_brick");
+		BlockExtension.start("blue_chiseled_nether_bricks", Settings.copy(Blocks.NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).isCutFrom(BLUE_NETHER_BRICKS).item(ItemGroup.BUILDING_BLOCKS).build("blue_chiseled_nether_brick");
 		BlockExtension.start("warped_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("warped_nether_brick");
+		WARPED_NETHER_BRICKS = Registry.BLOCK.get(ExtraThings.id("warped_nether_bricks"));
 		BlockExtension.start("warped_cracked_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).slab().stairs().fence().wall().item(ItemGroup.BUILDING_BLOCKS).build("warped_cracked_nether_brick");
-		BlockExtension.start("warped_chiseled_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).item(ItemGroup.BUILDING_BLOCKS).build("warped_chiseled_nether_brick");
+		BlockExtension.start("warped_chiseled_nether_bricks", Settings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.DARK_AQUA)).isCutFrom(WARPED_NETHER_BRICKS).item(ItemGroup.BUILDING_BLOCKS).build("warped_chiseled_nether_brick");
 		BlockExtension.start(Blocks.OBSIDIAN).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build();
 		BlockExtension.start(Blocks.CRYING_OBSIDIAN).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build();
 		BlockExtension.start(Blocks.QUARTZ_BLOCK).wall("minecraft:block/quartz_block_top").item(ItemGroup.BUILDING_BLOCKS).build("quartz");
-		BlockExtension.start(Blocks.QUARTZ_BRICKS).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build("quartz_brick");
-		BlockExtension.start(Blocks.CHISELED_QUARTZ_BLOCK).slab().stairs().wall().item(ItemGroup.BUILDING_BLOCKS).build("chiseled_quartz");
-		BlockExtension.start(Blocks.SMOOTH_QUARTZ).wall("minecraft:block/quartz_block_bottom").item(ItemGroup.BUILDING_BLOCKS).build();
+		BlockExtension.start(Blocks.QUARTZ_BRICKS).slab().stairs().wall().isCutFrom(Blocks.QUARTZ_BLOCK).item(ItemGroup.BUILDING_BLOCKS).build("quartz_brick");
+		BlockExtension.start(Blocks.CHISELED_QUARTZ_BLOCK).slab().stairs().wall().isCutFrom(Blocks.QUARTZ_BLOCK).item(ItemGroup.BUILDING_BLOCKS).build("chiseled_quartz");
+		BlockExtension.start(Blocks.SMOOTH_QUARTZ).wall("minecraft:block/quartz_block_bottom").isCutFrom(Blocks.QUARTZ_BLOCK).item(ItemGroup.BUILDING_BLOCKS).build();
 	}
 
 	public static Block register(String id, Block block) {

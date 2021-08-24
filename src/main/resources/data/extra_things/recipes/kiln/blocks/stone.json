@@ -1,0 +1,9 @@
+{
+  "type": "extra_things:firing",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": "minecraft:stone",
+  "experience": 0.1,
+  "cookingtime": 100
+}

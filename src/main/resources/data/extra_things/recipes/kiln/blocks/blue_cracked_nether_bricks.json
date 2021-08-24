@@ -1,0 +1,9 @@
+{
+  "type": "extra_things:firing",
+  "ingredient": {
+    "item": "extra_things:blue_nether_bricks"
+  },
+  "result": "extra_things:blue_cracked_nether_bricks",
+  "experience": 0.1,
+  "cookingtime": 100
+}

@@ -1,0 +1,9 @@
+{
+	"type": "extra_things:lumbermill",
+	"ingredient": 
+	{
+		"tag": "minecraft:birch_logs"
+	},
+	"result": "minecraft:birch_slab",
+	"count": 8
+}

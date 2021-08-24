@@ -1,0 +1,9 @@
+{
+	"type": "extra_things:lumbermill",
+	"ingredient": 
+	{
+		"tag": "minecraft:acacia_logs"
+	},
+	"result": "minecraft:acacia_stairs",
+	"count": 4
+}
