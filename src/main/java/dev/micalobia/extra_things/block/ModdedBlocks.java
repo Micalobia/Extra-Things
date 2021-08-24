@@ -28,6 +28,7 @@ public class ModdedBlocks {
 	public static final Block DYE_CAULDRON;
 	public static final Block WARPED_WART;
 	public static final Block LUMBERMILL;
+	public static final Block KILN;
 
 	static {
 		POTION_CAULDRON = register("potion_cauldron", new PotionCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)));
@@ -35,6 +36,7 @@ public class ModdedBlocks {
 		TINTED_GLASS_PANE = register("tinted_glass_pane", new TintedPaneBlock(AbstractBlock.Settings.copy(Blocks.TINTED_GLASS)));
 		WARPED_WART = register("warped_wart", NetherWartBlockFactory.create(AbstractBlock.Settings.copy(Blocks.NETHER_WART).mapColor(MapColor.TEAL)));
 		LUMBERMILL = register("lumbermill", new LumbermillBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
+		KILN = register("kiln", new KilnBlock(AbstractBlock.Settings.copy(Blocks.BRICKS)));
 
 		BLUE_NETHERRACK = register("blue_netherrack", new NetherrackBlock(Settings.copy(Blocks.NETHERRACK).mapColor(MapColor.DARK_AQUA)));
 		BLUE_CRIMSON_NYLIUM = register("blue_crimson_nylium", NyliumBlockFactory.create(Settings.copy(Blocks.CRIMSON_NYLIUM)));

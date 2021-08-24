@@ -8,9 +8,11 @@ import net.minecraft.util.registry.Registry;
 
 public class ModdedStats {
 	public static final Identifier INTERACT_WITH_LUMBERMILL;
+	public static final Identifier INTERACT_WITH_KILN;
 
 	static {
 		INTERACT_WITH_LUMBERMILL = register("interact_with_lumbermill", StatFormatter.DEFAULT);
+		INTERACT_WITH_KILN = register("interact_with_kiln", StatFormatter.DEFAULT);
 	}
 
 	private static Identifier register(String path, StatFormatter statFormatter) {
