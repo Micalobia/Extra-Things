@@ -1,0 +1,9 @@
+{
+	"type": "extra_things:lumbermill",
+	"ingredient": 
+	{
+		"tag": "minecraft:planks"
+	},
+	"result": "minecraft:stick",
+	"count": 2
+}

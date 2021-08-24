@@ -1,0 +1,9 @@
+{
+	"type": "extra_things:lumbermill",
+	"ingredient": 
+	{
+		"tag": "minecraft:crimson_stems"
+	},
+	"result": "minecraft:crimson_planks",
+	"count": 4
+}
