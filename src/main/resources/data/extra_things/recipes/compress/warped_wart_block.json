@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "extra_things:warped_wart"
+    }
+  },
+  "result": {
+    "item": "minecraft:warped_wart_block"
+  }
+}
