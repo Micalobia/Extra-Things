@@ -27,7 +27,7 @@ public abstract class MinecraftClientMixin {
 	protected abstract ItemStack addBlockEntityNbt(ItemStack stack, BlockEntity blockEntity);
 
 	private boolean isPotionCauldron() {
-		return blockEntityCapture.getType() == ModdedBlockEntities.POTION_CAULDRON_BLOCK_ENTITY;
+		return blockEntityCapture.getType() == ModdedBlockEntities.POTION_CAULDRON;
 	}
 
 	@Redirect(method = "doItemPick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()Z"))

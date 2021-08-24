@@ -13,7 +13,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
@@ -92,35 +91,35 @@ public class BlockExtension {
 
 	protected void slab(@Nullable Identifier id) {
 		Block block = register(append("_slab"), new SlabBlock(settings));
-		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+		if(ExtraThings.onClient())
 			BlockRenderLayerMap.INSTANCE.putBlock(block, renderLayer);
 		generate_slab_files(id);
 	}
 
 	protected void stairs(@Nullable Identifier id) {
 		Block block = register(append("_stairs"), StairsBlockFactory.create(base.getDefaultState(), settings));
-		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+		if(ExtraThings.onClient())
 			BlockRenderLayerMap.INSTANCE.putBlock(block, renderLayer);
 		generate_stairs_files(id);
 	}
 
 	protected void fence(@Nullable Identifier id) {
 		Block block = register(append("_fence"), new FenceBlock(settings));
-		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+		if(ExtraThings.onClient())
 			BlockRenderLayerMap.INSTANCE.putBlock(block, renderLayer);
 		generate_fence_files(id);
 	}
 
 	protected void wall(@Nullable Identifier id) {
 		Block block = register(append("_wall"), new WallBlock(settings));
-		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+		if(ExtraThings.onClient())
 			BlockRenderLayerMap.INSTANCE.putBlock(block, renderLayer);
 		generate_wall_files(id);
 	}
 
 	protected void pane(@Nullable Identifier id) {
 		Block block = register(append("_pane"), PaneBlockFactory.create(settings));
-		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+		if(ExtraThings.onClient())
 			BlockRenderLayerMap.INSTANCE.putBlock(block, renderLayer);
 		generate_pane_files(id);
 	}
@@ -535,19 +534,19 @@ public class BlockExtension {
 		}
 
 		public Builder solid() {
-			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+			if(ExtraThings.onClient())
 				renderLayer = RenderLayer.getSolid();
 			return this;
 		}
 
 		public Builder transparent() {
-			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+			if(ExtraThings.onClient())
 				renderLayer = RenderLayer.getCutout();
 			return this;
 		}
 
 		public Builder translucent() {
-			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+			if(ExtraThings.onClient())
 				renderLayer = RenderLayer.getTranslucent();
 			return this;
 		}
@@ -594,7 +593,7 @@ public class BlockExtension {
 				be.base(block);
 			else
 				be.base(blockId, blockSettings);
-			if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+			if(ExtraThings.onClient()) {
 				if(renderLayer != null) {
 					be.setRenderLayer(renderLayer);
 					if(block == null)

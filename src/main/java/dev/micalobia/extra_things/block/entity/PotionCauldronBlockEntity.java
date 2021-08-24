@@ -24,7 +24,7 @@ public class PotionCauldronBlockEntity extends BlockEntity implements BlockEntit
 	protected List<StatusEffectInstance> customPotionEffects;
 
 	public PotionCauldronBlockEntity(BlockPos pos, BlockState state) {
-		super(ModdedBlockEntities.POTION_CAULDRON_BLOCK_ENTITY, pos, state);
+		super(ModdedBlockEntities.POTION_CAULDRON, pos, state);
 		potion = Potions.EMPTY;
 		customPotionEffects = new ArrayList<>();
 	}

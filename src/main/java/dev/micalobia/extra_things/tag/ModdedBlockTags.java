@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
-public class BlockTags {
+public class ModdedBlockTags {
 	public static final Tag<Block> WARPED_NYLIUM;
 	public static final Tag<Block> CRIMSON_NYLIUM;
 	public static final Tag<Block> NETHERRACK;

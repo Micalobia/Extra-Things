@@ -14,7 +14,7 @@ public class DyeCauldronBlockEntity extends BlockEntity implements Dyeable<DyeCa
 	int color;
 
 	public DyeCauldronBlockEntity(BlockPos pos, BlockState state) {
-		super(ModdedBlockEntities.DYE_CAULDRON_BLOCK_ENTITY, pos, state);
+		super(ModdedBlockEntities.DYE_CAULDRON, pos, state);
 		color = -1;
 	}
 

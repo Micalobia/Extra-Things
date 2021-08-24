@@ -9,13 +9,13 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 
 public class ModdedBlockEntities {
-	public static final BlockEntityType<PotionCauldronBlockEntity> POTION_CAULDRON_BLOCK_ENTITY;
-	public static final BlockEntityType<DyeCauldronBlockEntity> DYE_CAULDRON_BLOCK_ENTITY;
+	public static final BlockEntityType<PotionCauldronBlockEntity> POTION_CAULDRON;
+	public static final BlockEntityType<DyeCauldronBlockEntity> DYE_CAULDRON;
 	public static final BlockEntityType<KilnBlockEntity> KILN;
 
 	static {
-		POTION_CAULDRON_BLOCK_ENTITY = register("potion_cauldron_block_entity", PotionCauldronBlockEntity::new, ModdedBlocks.POTION_CAULDRON);
-		DYE_CAULDRON_BLOCK_ENTITY = register("dye_cauldron_block_entity", DyeCauldronBlockEntity::new, ModdedBlocks.DYE_CAULDRON);
+		POTION_CAULDRON = register("potion_cauldron_block_entity", PotionCauldronBlockEntity::new, ModdedBlocks.POTION_CAULDRON);
+		DYE_CAULDRON = register("dye_cauldron_block_entity", DyeCauldronBlockEntity::new, ModdedBlocks.DYE_CAULDRON);
 		KILN = register("kiln", KilnBlockEntity::new, ModdedBlocks.KILN);
 	}
 

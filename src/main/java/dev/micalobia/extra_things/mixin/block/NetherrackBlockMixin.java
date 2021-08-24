@@ -1,7 +1,7 @@
 package dev.micalobia.extra_things.mixin.block;
 
 import dev.micalobia.extra_things.block.ModdedBlocks;
-import dev.micalobia.extra_things.tag.BlockTags;
+import dev.micalobia.extra_things.tag.ModdedBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,12 +18,12 @@ import java.util.Random;
 public class NetherrackBlockMixin {
 	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 0))
 	private boolean isWarped(BlockState state, Block block) {
-		return state.isIn(BlockTags.WARPED_NYLIUM);
+		return state.isIn(ModdedBlockTags.WARPED_NYLIUM);
 	}
 
 	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1))
 	private boolean isCrimson(BlockState state, Block block) {
-		return state.isIn(BlockTags.CRIMSON_NYLIUM);
+		return state.isIn(ModdedBlockTags.CRIMSON_NYLIUM);
 	}
 
 	@Redirect(method = "grow", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 0))

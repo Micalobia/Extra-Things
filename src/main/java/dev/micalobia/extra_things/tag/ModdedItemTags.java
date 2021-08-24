@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
-public class ItemTags {
+public class ModdedItemTags {
 	public static final Tag<Item> NETHER_WART;
 
 	static {

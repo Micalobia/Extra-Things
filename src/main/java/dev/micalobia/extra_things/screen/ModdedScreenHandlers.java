@@ -3,7 +3,9 @@ package dev.micalobia.extra_things.screen;
 import dev.micalobia.extra_things.ExtraThings;
 import dev.micalobia.extra_things.client.gui.screen.ingame.KilnScreen;
 import dev.micalobia.extra_things.client.gui.screen.ingame.LumbermillScreen;
-import dev.micalobia.extra_things.mixin.client.gui.screen.ingame.HandledScreensAccessor;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry.SimpleClientHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
@@ -16,10 +18,6 @@ public class ModdedScreenHandlers {
 	static {
 		LUMBERMILL = register("lumbermill", LumbermillScreenHandler::new);
 		KILN = register("kiln", KilnScreenHandler::new);
-		if(ExtraThings.onClient()) {
-			HandledScreensAccessor.register(LUMBERMILL, LumbermillScreen::new);
-			HandledScreensAccessor.register(KILN, KilnScreen::new);
-		}
 	}
 
 	private static <T extends ScreenHandler> ScreenHandlerType<T> register(String id, SimpleClientHandlerFactory<T> factory) {
@@ -27,5 +25,11 @@ public class ModdedScreenHandlers {
 	}
 
 	public static void init() {
+	}
+
+	@Environment(EnvType.CLIENT)
+	public static void clientInit() {
+		ScreenRegistry.register(LUMBERMILL, LumbermillScreen::new);
+		ScreenRegistry.register(KILN, KilnScreen::new);
 	}
 }

@@ -1,6 +1,6 @@
 package dev.micalobia.extra_things.mixin.block;
 
-import dev.micalobia.extra_things.tag.BlockTags;
+import dev.micalobia.extra_things.tag.ModdedBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PistonBlock;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class PistonBlockMixin {
 	@Redirect(method = "isMovable", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 0))
 	private static boolean changeHardcodedImmovable0(BlockState state, Block block) {
-		return state.isIn(BlockTags.IMMOVABLE);
+		return state.isIn(ModdedBlockTags.IMMOVABLE);
 	}
 
 	@Redirect(method = "isMovable", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1))
