@@ -12,16 +12,18 @@
     "block.PistonBlockMixin",
     "block.StairsBlockFactory",
     "block.enums.InstrumentMixin",
-    "client.recipebook.RecipeBookGroupMixin",
     "recipe.CuttingRecipeSerializerFactory",
     "recipe.book.RecipeBookCategoryMixin",
+    "recipe.book.RecipeBookOptionsMixin",
     "world.gen.feature.HugeFungusFeatureConfigMixin",
     "world.gen.feature.HugeFungusFeatureMixin",
     "world.gen.surfacebuilder.NetherForestSurfaceBuilderMixin",
     "world.gen.surfacebuilder.SurfaceBuilderMixin"
   ],
   "client": [
-    "client.MinecraftClientMixin"
+    "client.MinecraftClientMixin",
+    "client.recipebook.ClientRecipeBookMixin",
+    "client.recipebook.RecipeBookGroupMixin"
   ],
   "injectors": {
     "defaultRequire": 1
